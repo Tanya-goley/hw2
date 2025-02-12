@@ -76,10 +76,10 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
-Studio.destroy_all
+Role.destroy_all
 Movie.destroy_all
 Actor.destroy_all
-Role.destroy_all
+Studio.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
@@ -286,6 +286,7 @@ movies.each do |movie|
   studio_name = studio
   puts "#{movie.title}\t\t#{movie.year_released}\t\t#{movie.rated}\t\t#{studio_name.name}\n"
 end
+
 
 # Prints a header for the cast output
 puts ""
