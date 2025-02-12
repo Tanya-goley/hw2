@@ -76,13 +76,65 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
 
+#DONE!
+
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+#Step 1 - Insert Studio
+
+new_studio = Studio.new
+new_studio["name"] = "Warner Bros."
+new_studio.save
+
+#Step 2 - Inserting Movies
+
+movie1 = Movie.new
+movie1["tittle"] = "Batman Begins"
+movie1["year_released"] = 2005
+movie1["rated"] = "PG-13"
+studio = Studio.find_by(name: "Warner Bros.")
+movie1["studio_id"] = studio.id
+movie1.save
+
+movie2 = Movie.new
+movie2["tittle"] = "The Dark Knight"
+movie2["year_released"] = 2008
+movie2["rated"] = "PG-13"
+studio = Studio.find_by(name: "Warner Bros.")
+movie2["studio_id"] = studio.id
+movie2.save
+
+movie3 = Movie.new
+movie3["tittle"] = "The Dark Knight Rises"
+movie3["year_released"] = 2012
+movie3["rated"] = "PG-13"
+studio = Studio.find_by(name: "Warner Bros.")
+movie3["studio_id"] = studio.id
+movie3.save
+
+#Step 3 - Inserting Actors
+
+actor1 = Actor.new
+actor1["name"] = "Christian Bale"
+actor1.save
+
+actor2 = Actor.new
+actor2["name"] = "Michael Caine"
+actor2.save
+
+actor3 = Actor.new
+actor3["name"] = "Liam Neeson"
+actor3.save
 
 # Prints a header for the movies output
 puts "Movies"
